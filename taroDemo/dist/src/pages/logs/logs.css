@@ -1,0 +1,33 @@
+.index {
+  width: 700px;
+  flex-direction: column;
+  flex-direction: column;
+  padding-bottom: 100px;
+  /*margin:0 auto; Taro comment: unsupported style.[兼容写法参考](https://doc.quickapp.cn/widgets/common-styles.html)*/
+  /*box-orient:vertical; Taro comment: unsupported style.[兼容写法参考](https://doc.quickapp.cn/widgets/common-styles.html)*/
+  /*box-direction:normal; Taro comment: unsupported style.[兼容写法参考](https://doc.quickapp.cn/widgets/common-styles.html)*/
+  /*-ms-flex-direction:column; Taro comment: unsupported style.[兼容写法参考](https://doc.quickapp.cn/widgets/common-styles.html)*/
+}
+
+.button {
+  color: #f00;
+  border: 1px solid #ccc;
+  height: 80px;
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #0000c2;
+  /*background:#0000c2; Taro comment: unsupported style.[兼容写法参考](https://doc.quickapp.cn/widgets/common-styles.html)*/
+}
+
+.button  {
+  color: #fff;
+}
+
+.head {
+  background-color: #07c160;
+  /*background:#07c160; Taro comment: unsupported style.[兼容写法参考](https://doc.quickapp.cn/widgets/common-styles.html)*/
+}

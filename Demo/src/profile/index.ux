@@ -1,0 +1,92 @@
+<template>
+  <!-- template里只能有一个根节点 -->
+  <div class="demo-page">
+     <input class="btn" type="button" value="profileSetOnce - 设置用户单个固有属性" onclick="profileSetOnce" />
+     <input class="btn" type="button" value="profileSetOnce - 设置用户多个固有属性" onclick="profileSetOnceMore" />
+     <input class="btn" type="button" value="profileSet - 设置单个用户属性" onclick="profileSet" />
+     <input class="btn" type="button" value="profileSet - 设置多个用户属性" onclick="profileSetMore" />
+     <input class="btn" type="button" value="profileIncrement - 设置用户属性单个相对变化值" onclick="profileIncrement" />
+     <input class="btn" type="button" value="profileIncrement - 设置用户属性多个相对变化值" onclick="profileIncrementMore" />
+     <input class="btn" type="button" value="profileAppend - 增加列表类型的属性" onclick="profileAppend" />
+     <input class="btn" type="button" value="profileUnset - 删除单个设置的属性值" onclick="profileUnset" />
+     <input class="btn" type="button" value="profileDelete - 删除所有设置的属性值" onclick="profileDelete" />
+  </div>
+</template>
+
+<script>
+export default {
+  private: {
+    text: '欢迎打开详情页',
+    distinctId:''
+  },
+  /**
+   * 当用户点击菜单按钮时触发，调用app中定义的方法showMenu
+   * 注意：使用加载器测试`创建桌面快捷方式`功能时，请先在`系统设置`中打开`应用加载器`的`桌面快捷方式`权限
+   */
+  onMenuPress() {
+    this.$app.$def.showMenu()
+  },
+  profileSetOnce(){
+    this.$app.AnalysysAgent.profileSetOnce("activationTime", 1521280551929);
+  },
+  profileSetOnceMore(){
+    let setOnceProfile = {
+      "birth": 548798705000,
+      "sex": "male"
+    }
+  this.$app.AnalysysAgent.profileSetOnce(setOnceProfile)
+  },
+  profileSet(){
+    this.$app.AnalysysAgent.profileSet("Email", "yonghu@163.com")
+  },
+  profileSetMore(){
+    let property = {
+      "Email": "yonghu@163.com",
+      "WeChatID": "weixinhao"
+    }
+    this.$app.AnalysysAgent.profileSet(property);
+  },
+  profileIncrement(){
+    this.$app.AnalysysAgent.profileIncrement("age", 1);
+  },
+  profileIncrementMore(){
+    let incrementProfile = {
+      "gameAge": 1,
+      "gameRating": 2
+    }
+    this.$app.AnalysysAgent.profileIncrement(incrementProfile);
+  },
+  profileAppend(){
+    let list = ["PlayBasketball", "music"];
+    this.$app.AnalysysAgent.profileAppend("hobby", list);
+  },
+  profileUnset(){
+    this.$app.AnalysysAgent.profileUnset("age");
+  },
+  profileDelete(){
+    this.$app.AnalysysAgent.profileDelete();
+  }
+}
+</script>
+
+<style>
+  .demo-page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 40px;
+    text-align: center;
+  }
+   .btn {
+    width: 550px;
+    height: 86px;
+    margin-top: 75px;
+    border-radius: 43px;
+    background-color: #09ba07;
+    font-size: 30px;
+    color: #ffffff;
+  }
+</style>

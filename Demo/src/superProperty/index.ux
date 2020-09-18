@@ -1,0 +1,85 @@
+<template>
+  <!-- template里只能有一个根节点 -->
+  <div class="demo-page">
+     <input class="btn" type="button" value="registerSuperProperty - 注册单个通用属性" onclick="registerSuperProperty" />
+     <input class="btn" type="button" value="registerSuperProperties - 批量注册通用属性" onclick="registerSuperProperties" />
+     <input class="btn" type="button" value="unRegisterSuperProperty - 删除单个通用属性" onclick="unRegisterSuperProperty" />
+     <input class="btn" type="button" value="clearSuperProperties - 清空通用属性" onclick="clearSuperProperties" />
+     <input class="btn" type="button" value="getSuperProperty - 获取单个通用属性" onclick="getSuperProperty" />
+     <text >
+       单个通用属性值为：{{property}}
+     </text>
+     <input class="btn" type="button" value="getSuperProperties - 获取单个通用属性" onclick="getSuperProperties" />
+     <text>
+       所有通用属性值为：{{JSON.stringify(properties)}}
+     </text>
+  </div>
+</template>
+
+<script>
+export default {
+  private: {
+    text: '欢迎打开详情页',
+    property:'',
+    properties:{
+      a:1
+    }
+  },
+  /**
+   * 当用户点击菜单按钮时触发，调用app中定义的方法showMenu
+   * 注意：使用加载器测试`创建桌面快捷方式`功能时，请先在`系统设置`中打开`应用加载器`的`桌面快捷方式`权限
+   */
+  onShow(){
+  },
+  onMenuPress() {
+    this.$app.$def.showMenu()
+  },
+  registerSuperProperty(){
+    this.$app.AnalysysAgent.registerSuperProperty("member", "VIP")
+  },
+  registerSuperProperties(){
+    this.$app.AnalysysAgent.registerSuperProperties({
+      "platform": "TX",
+      "age": "20",
+      "member": "VIP",
+      "user": "xiaoming"
+    })
+  },
+  unRegisterSuperProperty(){
+    this.$app.AnalysysAgent.unRegisterSuperProperty("member")
+  },
+  clearSuperProperties(){
+    this.$app.AnalysysAgent.clearSuperProperties()
+  },
+  getSuperProperty(){
+     this.property = this.$app.AnalysysAgent.getSuperProperty("member")
+  },
+  getSuperProperties(){
+    console.log(33,this.$app.AnalysysAgent.getSuperProperties())
+    this.properties = {}
+    this.properties = this.$app.AnalysysAgent.getSuperProperties()
+  }
+}
+</script>
+
+<style>
+  .demo-page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 40px;
+    text-align: center;
+  }
+   .btn {
+    width: 650px;
+    height: 86px;
+    margin-top: 30px;
+    border-radius: 15px;
+    background-color: #09ba07;
+    font-size: 30px;
+    color: #ffffff;
+  }
+</style>

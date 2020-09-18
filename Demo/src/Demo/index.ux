@@ -1,0 +1,138 @@
+<template>
+  <!-- template里只能有一个根节点 -->
+  <div class="demo-page">
+    <input class="btn" type="button" value="统计页面" onclick="pageview" />
+    <input class="btn" type="button" value="统计事件" onclick="track" />
+    <input class="btn" type="button" value="通用属性" onclick="superProperty" />
+    <input class="btn" type="button" value="设备ID与用户关联" onclick="userID" />
+    <input class="btn" type="button" value="用户属性" onclick="profile" />
+    <input class="btn" type="button" value="获取预制属性" onclick="preset" />
+    <input class="btn" type="button" value="清除本地设置" onclick="reset" />
+    <input class="btn" type="button" value="下一页" onclick="nextPage" />
+    <input class="btn" type="button" value="分享" onclick="share" />
+  </div>
+</template>
+
+<script>
+import router from '@system.router'
+import share from '@system.share'
+
+export default {
+  // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
+  private: {
+    title: '示例页面'
+  },
+  public: {
+    // 获取页面参数，快应用通过public定义 key 名相同的属性获取外部参数;如果参数 key 未被声明，public 不会新增这个属性，即获取不到参数值。
+    // 不同的厂商对该能力可能有不同限制，使用前请和相应厂商确认。
+    // https://doc.quickapp.cn/tutorial/platform/deeplink.html  campaign_id=1233333331&utm_source=22&utm_medium=33&utm_term=44&utm_content=0&utm_campaign=false
+    campaign_id: null,
+    utm_source:null,
+    utm_medium:null,
+    utm_term:null,
+    utm_content:null,
+    utm_campaign:false
+  },
+  onInit() {
+      // console.log("onInit",this.$page)
+      //  AnalysysAgent.appStart(this.$page)
+  },
+  onShow() {
+    // console.log(333,this.$app)
+    // console.log(111,this.campaign_id,this.utm_source,this.utm_medium,this.utm_term,this.utm_content,this.utm_campaign,this.$page)
+    this.$app.AnalysysAgent.appStart(this.$page)
+    this.$app.AnalysysAgent.pageView('首页')
+    
+  },
+  componentDidMount() {
+        // eslint-disable-next-line
+      //  console.log('page did mount!', this.props.query);
+    },
+  pageview () {
+    // console.log(111,this.campaign_id,this.utm_source,this.utm_medium,this.utm_term,this.utm_content,this.utm_campaign)
+
+    router.push ({
+      uri: '/pageview'
+    })
+  },
+  track () {
+    router.push ({
+      uri: '/track'
+    })
+  },
+  superProperty () {
+    router.push ({
+      uri: '/superProperty'
+    })
+  },
+  userID () {
+    router.push ({
+      uri: '/userID'
+    })
+  },
+  profile () {
+    router.push ({
+      uri: '/profile'
+    })
+  },
+  preset () {
+    router.push ({
+      uri: '/preset'
+    })
+  },
+  reset () {
+    router.push ({
+      uri: '/reset'
+    })
+  },
+  nextPage(){
+    router.push ({
+      uri: '/pageview',
+      params: { key:"福彩3D"}
+    })
+  },
+  share(){
+    var _this = this
+        _this.$app.AnalysysAgent.share()
+
+
+    // 调用分享
+    share.share({
+      type: 'text/html',
+      data: '<b>bold</b>',
+      success: function(data) {
+        _this.$app.AnalysysAgent.share()
+        _this.$app.AnalysysAgent.track('pay')
+
+        console.log('handling success')
+      },
+      fail: function(data, code) {
+        console.log(`handling fail, code = ${code}`)
+      }
+    })
+  }
+}
+</script>
+
+<style>
+  .demo-page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .btn {
+    width: 550px;
+    height: 86px;
+    margin-top: 40px;
+    border-radius: 43px;
+    background-color: #09ba07;
+    font-size: 30px;
+    color: #ffffff;
+  }
+</style>

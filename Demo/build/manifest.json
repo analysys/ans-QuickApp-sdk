@@ -1,0 +1,118 @@
+{
+  "package": "com.example.demo",
+  "name": "快应用SDK Demo",
+  "versionName": "1.0.0",
+  "versionCode": "1",
+  "minPlatformVersion": "1000",
+  "icon": "/Common/logo.png",
+  "features": [
+    {
+      "name": "system.prompt"
+    },
+    {
+      "name": "system.router"
+    },
+    {
+      "name": "system.network"
+    },
+    {
+      "name": "system.device"
+    },
+    {
+      "name": "system.storage"
+    },
+    {
+      "name": "system.share"
+    },
+    {
+      "name": "system.shortcut"
+    },
+    {
+      "name": "system.fetch"
+    }
+  ],
+  "permissions": [
+    {
+      "origin": "*"
+    }
+  ],
+  "config": {
+    "logLevel": "debug",
+    "debug": true
+  },
+  "router": {
+    "entry": "Demo",
+    "pages": {
+      "Demo": {
+        "component": "index"
+      },
+      "pageview": {
+        "component": "index"
+      },
+      "track": {
+        "component": "index"
+      },
+      "superProperty": {
+        "component": "index"
+      },
+      "userID": {
+        "component": "index"
+      },
+      "profile": {
+        "component": "index"
+      },
+      "preset": {
+        "component": "index"
+      },
+      "reset": {
+        "component": "index"
+      },
+      "third": {
+        "component": "index"
+      }
+    }
+  },
+  "display": {
+    "titleBarBackgroundColor": "#f2f2f2",
+    "titleBarTextColor": "#414141",
+    "menu": true,
+    "pages": {
+      "Demo": {
+        "titleBarText": "SDK Demo",
+        "menu": false
+      },
+      "pageview": {
+        "titleBarText": "统计页面"
+      },
+      "track": {
+        "titleBarText": "统计事件"
+      },
+      "superProperty": {
+        "titleBarText": "通用属性"
+      },
+      "userID": {
+        "titleBarText": "设备ID与用户关联"
+      },
+      "profile": {
+        "titleBarText": "用户属性"
+      },
+      "preset": {
+        "titleBarText": "获取预制属性"
+      },
+      "reset": {
+        "titleBarText": "获取清除本地设置预制属性"
+      },
+      "third": {
+        "titleBarText": "第三页"
+      }
+    }
+  },
+  "packageInfo": {
+    "originType": "cmd",
+    "toolkit": "1.8.1-beta.1",
+    "timeStamp": "2020-09-17T02:02:16.886Z",
+    "node": "v12.8.1",
+    "platform": "darwin",
+    "arch": "x64"
+  }
+}

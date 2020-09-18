@@ -1,0 +1,13 @@
+{
+  "modeOptions": {
+    "current": 0,
+    "list": [
+      {
+        "id": 0,
+        "name": "UTM",
+        "pathName": "Demo",
+        "query": "campaign_id=1233333331&utm_source=22&utm_medium=33&utm_term=44&utm_content=0&utm_campaign=false"
+      }
+    ]
+  }
+}

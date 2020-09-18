@@ -1,0 +1,111 @@
+{
+  "package": "com.application.demo",
+  "name": "TaroQuickApp",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "minPlatformVersion": 1040,
+  "features": [
+    {
+      "name": "system.prompt"
+    },
+    {
+      "name": "system.router"
+    },
+    {
+      "name": "system.shortcut"
+    },
+    {
+      "name": "system.fetch"
+    },
+    {
+      "name": "system.storage"
+    },
+    {
+      "name": "system.barcode"
+    },
+    {
+      "name": "system.vibrator"
+    },
+    {
+      "name": "system.clipboard"
+    },
+    {
+      "name": "system.sensor"
+    },
+    {
+      "name": "system.geolocation"
+    },
+    {
+      "name": "system.share"
+    },
+    {
+      "name": "system.notification"
+    },
+    {
+      "name": "system.device"
+    },
+    {
+      "name": "system.webview"
+    },
+    {
+      "name": "system.request"
+    },
+    {
+      "name": "system.audio"
+    },
+    {
+      "name": "system.record"
+    },
+    {
+      "name": "system.contact"
+    },
+    {
+      "name": "system.sms"
+    },
+    {
+      "name": "system.network"
+    }
+  ],
+  "icon": "logo.png",
+  "permissions": [
+    {
+      "origin": "*"
+    }
+  ],
+  "config": {
+    "logLevel": "debug",
+    "designWidth": 750,
+    "debug": true
+  },
+  "router": {
+    "entry": "pages/index",
+    "pages": {
+      "pages/index": {
+        "component": "index"
+      },
+      "pages/logs": {
+        "component": "logs"
+      }
+    }
+  },
+  "display": {
+    "titleBarBackgroundColor": "#fff",
+    "titleBarText": "WeChat",
+    "titleBarTextColor": "black",
+    "pages": {
+      "pages/index": {
+        "titleBarText": "首页"
+      },
+      "pages/logs": {
+        "titleBarText": "第二页"
+      }
+    }
+  },
+  "packageInfo": {
+    "toolkit": "0.7.7-beta.3",
+    "timeStamp": "2020-09-15T10:19:56.754Z",
+    "node": "v12.8.1",
+    "platform": "darwin",
+    "arch": "x64"
+  }
+}

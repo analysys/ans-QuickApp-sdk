@@ -1,0 +1,60 @@
+<template>
+  <!-- template里只能有一个根节点 -->
+  <div class="demo-page">
+     <input class="btn" type="button" value="pageview - 打开页面" onclick="pageview" />
+     <input class="btn" type="button" value="pageview - 打开页面并添加别名 - 打开页面" onclick="pageviewAndPageName" />
+     <input class="btn" type="button" value="pageview - 打开页面并添加页面属性" onclick="pageviewAndProperty" />
+  </div>
+</template>
+
+<script>
+
+export default {
+  private: {
+    text: '欢迎打开详情页'
+  },
+  /**
+   * 当用户点击菜单按钮时触发，调用app中定义的方法showMenu
+   * 注意：使用加载器测试`创建桌面快捷方式`功能时，请先在`系统设置`中打开`应用加载器`的`桌面快捷方式`权限
+   */
+  onShow(){
+  },
+  onMenuPress() {
+    this.$app.$def.showMenu()
+  },
+  pageview(){
+    this.$app.AnalysysAgent.pageView()
+  },
+  pageviewAndPageName(){
+    this.$app.AnalysysAgent.pageView('首页')
+  },
+  pageviewAndProperty(){
+    this.$app.AnalysysAgent.pageView('首页', {
+      "commodityName": "iPhone",
+      "commodityPrice": 8000
+    })
+  }
+}
+</script>
+
+<style>
+  .demo-page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 40px;
+    text-align: center;
+  }
+   .btn {
+    width: 550px;
+    height: 86px;
+    margin-top: 75px;
+    border-radius: 43px;
+    background-color: #09ba07;
+    font-size: 30px;
+    color: #ffffff;
+  }
+</style>
