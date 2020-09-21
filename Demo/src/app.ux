@@ -32,7 +32,7 @@
         AnalysysAgent.encryptType = 0; //使用加密文件的时候 放开赋值。（直接放开不会报错）
         AnalysysAgent.autoProfile = false;
          AnalysysAgent.auto = false;
-         AnalysysAgent.requestDataType = 'text';
+         //AnalysysAgent.requestDataType = 'text';
 
         //  AnalysysAgent.uploadURL = 'https://arkpaastest.analysys.cn:4089'   // 明文
         AnalysysAgent.uploadURL = 'https://arksdk.analysys.cn:4089'    //密文
